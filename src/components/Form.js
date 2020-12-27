@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Error from './Error';
 
-export default function Form({saveSearch}){
+export default function Form({saveSearch, saveCurrentPage}){
 
     const [term, saveTerm] = useState('');
     const [error, saveError] = useState(false);
@@ -14,6 +14,8 @@ export default function Form({saveSearch}){
             return;
         }
         saveError(false);
+
+        saveCurrentPage(1);
 
         saveSearch(term);
     }
